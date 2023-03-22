@@ -10,7 +10,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
-class FooGenericsDecorator implements GenericsDecorator<GenericsBuilder<Foo>> {
+class FooGenericsDecorator implements GenericsDecorator<Foo> {
     private final FooRepository fooRepository;
 
     public FooGenericsDecorator(FooRepository fooRepository) {

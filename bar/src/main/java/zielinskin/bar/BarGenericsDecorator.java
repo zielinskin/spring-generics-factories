@@ -10,7 +10,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
-class BarGenericsDecorator implements GenericsDecorator<GenericsBuilder<Bar>> {
+class BarGenericsDecorator implements GenericsDecorator<Bar> {
     private final BarRepository barRepository;
 
     public BarGenericsDecorator(BarRepository barRepository) {

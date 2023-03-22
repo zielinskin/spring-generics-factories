@@ -9,7 +9,7 @@ import java.util.List;
 class FooBarGenericsService extends GenericsService<FooBar> {
     public FooBarGenericsService(GenericsBuilderFactory<? extends GenericsBuilder<FooBar>>
                                          genericsBuilderFactory,
-                                 List<GenericsDecorator<GenericsBuilder<? super FooBar>>> genericsDecorators) {
+                                 List<GenericsDecorator<? super FooBar>> genericsDecorators) {
         super(genericsBuilderFactory, genericsDecorators);
     }
 }

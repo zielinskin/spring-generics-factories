@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 class FooGenericsService extends GenericsService<Foo> {
     public FooGenericsService(GenericsBuilderFactory<? extends GenericsBuilder<Foo>> genericsBuilderFactory,
-                              List<GenericsDecorator<GenericsBuilder<? super Foo>>> genericsDecorators) {
+                              List<GenericsDecorator<? super Foo>> genericsDecorators) {
         super(genericsBuilderFactory, genericsDecorators);
     }
 }

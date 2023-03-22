@@ -8,10 +8,10 @@ import java.util.stream.Collectors;
 
 public abstract class GenericsService<T> {
     private final GenericsBuilderFactory<? extends GenericsBuilder<T>> genericsBuilderFactory;
-    private final List<GenericsDecorator<GenericsBuilder<? super T>>> genericsDecorators;
+    private final List<GenericsDecorator<? super T>> genericsDecorators;
 
     public GenericsService(GenericsBuilderFactory<? extends GenericsBuilder<T>> genericsBuilderFactory,
-                           List<GenericsDecorator<GenericsBuilder<? super T>>> genericsDecorators) {
+                           List<GenericsDecorator<? super T>> genericsDecorators) {
         this.genericsBuilderFactory = genericsBuilderFactory;
         this.genericsDecorators = genericsDecorators;
     }
