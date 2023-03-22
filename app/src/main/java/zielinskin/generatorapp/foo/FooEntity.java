@@ -3,7 +3,7 @@ package zielinskin.generatorapp.foo;
 import javax.persistence.*;
 
 @Entity
-public class FooEntity {
+class FooEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
