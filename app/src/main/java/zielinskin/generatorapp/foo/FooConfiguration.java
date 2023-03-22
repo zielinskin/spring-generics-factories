@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan("zielinskin.generatorapp.foo")
 @EntityScan(basePackages = {"zielinskin.generatorapp.foo"})
 @EnableJpaRepositories(basePackages = {"zielinskin.generatorapp.foo"})
-class FooConfiguration {
+public class FooConfiguration {
     @Bean
     public GroupedOpenApi fooDocket() {
         return GroupedOpenApi.builder()

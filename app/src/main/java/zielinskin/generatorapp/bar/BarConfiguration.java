@@ -10,5 +10,5 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan("zielinskin.generatorapp.bar")
 @EntityScan(basePackages = {"zielinskin.generatorapp.bar"})
 @EnableJpaRepositories(basePackages = {"zielinskin.generatorapp.bar"})
-class BarConfiguration {
+public class BarConfiguration {
 }
