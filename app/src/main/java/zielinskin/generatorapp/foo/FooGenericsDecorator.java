@@ -1,9 +1,8 @@
-package zielinskin.generatorapp.logic.foo;
+package zielinskin.generatorapp.foo;
 
 import org.springframework.stereotype.Service;
 import zielinskin.builder.GenericsBuilder;
 import zielinskin.builder.GenericsDecorator;
-import zielinskin.generatorapp.data.FooRepository;
 
 import java.util.Collection;
 import java.util.Map;

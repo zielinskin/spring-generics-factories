@@ -1,4 +1,4 @@
-package zielinskin.generatorapp.data;
+package zielinskin.generatorapp.bar;
 
 import org.springframework.data.repository.CrudRepository;
 

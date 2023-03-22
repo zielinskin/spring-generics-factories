@@ -1,4 +1,4 @@
-package zielinskin.generatorapp.logic.foo;
+package zielinskin.generatorapp.foo;
 
 class FooImpl implements Foo {
     private final Integer id;

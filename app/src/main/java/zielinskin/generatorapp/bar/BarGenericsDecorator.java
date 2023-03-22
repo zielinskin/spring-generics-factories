@@ -1,9 +1,8 @@
-package zielinskin.generatorapp.logic.bar;
+package zielinskin.generatorapp.bar;
 
 import org.springframework.stereotype.Service;
 import zielinskin.builder.GenericsBuilder;
 import zielinskin.builder.GenericsDecorator;
-import zielinskin.generatorapp.data.BarRepository;
 
 import java.util.Collection;
 import java.util.Map;
