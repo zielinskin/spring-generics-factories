@@ -1,4 +1,4 @@
-package zielinskin.generatorapp.foo;
+package zielinskin.foo;
 
 import zielinskin.builder.GenericsBuilder;
 

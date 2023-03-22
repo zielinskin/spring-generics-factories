@@ -1,4 +1,4 @@
-package zielinskin.generatorapp.foo;
+package zielinskin.bar;
 
 import org.springframework.stereotype.Service;
 import zielinskin.builder.GenericsBuilder;
@@ -10,11 +10,11 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
-class FooGenericsDecorator implements GenericsDecorator<GenericsBuilder<Foo>> {
-    private final FooRepository fooRepository;
+class BarGenericsDecorator implements GenericsDecorator<GenericsBuilder<Bar>> {
+    private final BarRepository barRepository;
 
-    public FooGenericsDecorator(FooRepository fooRepository) {
-        this.fooRepository = fooRepository;
+    public BarGenericsDecorator(BarRepository barRepository) {
+        this.barRepository = barRepository;
     }
 
     @Override
@@ -24,9 +24,9 @@ class FooGenericsDecorator implements GenericsDecorator<GenericsBuilder<Foo>> {
                         GenericsBuilder::getId,
                         Function.identity()));
 
-        fooRepository.findAllById(genericsBuilderMap.keySet())
+        barRepository.findAllById(genericsBuilderMap.keySet())
                 .forEach(fooEntity ->
-                        ((FooGenericsBuilder<Foo>) genericsBuilderMap.get(fooEntity.getId()))
-                                .setFoo(fooEntity.getFoo()));
+                        ((BarGenericsBuilder<Bar>) genericsBuilderMap.get(fooEntity.getId()))
+                                .setBar(fooEntity.getBar()));
     }
 }

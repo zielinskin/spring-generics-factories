@@ -1,4 +1,4 @@
-package zielinskin.generatorapp.foo;
+package zielinskin.foo;
 
 import org.springframework.stereotype.Service;
 import zielinskin.builder.*;

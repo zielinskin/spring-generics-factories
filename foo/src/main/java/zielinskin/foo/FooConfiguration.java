@@ -1,4 +1,4 @@
-package zielinskin.generatorapp.foo;
+package zielinskin.foo;
 
 
 import org.springdoc.core.GroupedOpenApi;
@@ -9,9 +9,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
-@ComponentScan("zielinskin.generatorapp.foo")
-@EntityScan(basePackages = {"zielinskin.generatorapp.foo"})
-@EnableJpaRepositories(basePackages = {"zielinskin.generatorapp.foo"})
+@ComponentScan("zielinskin.foo")
+@EntityScan(basePackages = {"zielinskin.foo"})
+@EnableJpaRepositories(basePackages = {"zielinskin.foo"})
 public class FooConfiguration {
     @Bean
     public GroupedOpenApi fooDocket() {

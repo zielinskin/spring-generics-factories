@@ -3,8 +3,8 @@ package zielinskin.generatorapp.foobar;
 
 import org.springdoc.core.GroupedOpenApi;
 import org.springframework.context.annotation.*;
-import zielinskin.generatorapp.bar.BarConfiguration;
-import zielinskin.generatorapp.foo.FooConfiguration;
+import zielinskin.bar.BarConfiguration;
+import zielinskin.foo.FooConfiguration;
 
 @Configuration
 @ComponentScan("zielinskin.generatorapp.foobar")

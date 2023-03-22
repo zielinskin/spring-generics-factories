@@ -1,4 +1,4 @@
-package zielinskin.generatorapp.foo;
+package zielinskin.foo;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,4 +1,4 @@
-package zielinskin.generatorapp.foo;
+package zielinskin.foo;
 
 import javax.persistence.*;
 

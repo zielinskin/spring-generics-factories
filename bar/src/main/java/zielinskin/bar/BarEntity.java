@@ -1,4 +1,4 @@
-package zielinskin.generatorapp.bar;
+package zielinskin.bar;
 
 import javax.persistence.*;
 

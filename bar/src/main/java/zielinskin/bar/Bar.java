@@ -1,4 +1,4 @@
-package zielinskin.generatorapp.bar;
+package zielinskin.bar;
 
 public interface Bar {
     Integer getId();

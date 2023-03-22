@@ -1,4 +1,4 @@
-package zielinskin.generatorapp.bar;
+package zielinskin.bar;
 
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
-@ComponentScan("zielinskin.generatorapp.bar")
-@EntityScan(basePackages = {"zielinskin.generatorapp.bar"})
-@EnableJpaRepositories(basePackages = {"zielinskin.generatorapp.bar"})
+@ComponentScan("zielinskin.bar")
+@EntityScan(basePackages = {"zielinskin.bar"})
+@EnableJpaRepositories(basePackages = {"zielinskin.bar"})
 public class BarConfiguration {
 }

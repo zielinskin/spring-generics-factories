@@ -1,4 +1,4 @@
-package zielinskin.generatorapp.foo;
+package zielinskin.foo;
 
 class FooGenericsBuilderImpl implements FooGenericsBuilder<Foo> {
     private final Integer id;

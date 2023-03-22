@@ -9,3 +9,6 @@ rootProject.name = 'spring-generics-factories'
 
 include 'generators'
 include 'app'
+include 'foo'
+include 'bar'
+
