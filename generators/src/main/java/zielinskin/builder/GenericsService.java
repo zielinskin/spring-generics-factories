@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-public class GenericsService<T> {
+public abstract class GenericsService<T> {
     private final GenericsBuilderFactory<? extends GenericsBuilder<T>> genericsBuilderFactory;
     private final List<GenericsDecorator<GenericsBuilder<? super T>>> genericsDecorators;
 
