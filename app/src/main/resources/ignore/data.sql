@@ -1,0 +1,4 @@
+--INSERT INTO FooEntity (foo) VALUES ('foo');
+--INSERT INTO FooEntity (foo) VALUES ('foo2');
+--
+--INSERT INTO BarEntity (bar) VALUES ('bar');

@@ -1,2 +1,4 @@
-rootProject.name = 'h2-training-simple'
+rootProject.name = 'spring-generics-factories'
 
+include 'generators'
+include 'app'
