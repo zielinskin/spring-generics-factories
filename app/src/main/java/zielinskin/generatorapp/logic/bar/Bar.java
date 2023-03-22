@@ -1,4 +1,4 @@
-package zielinskin.generatorapp.logic;
+package zielinskin.generatorapp.logic.bar;
 
 public interface Bar {
     Integer getId();

@@ -1,6 +1,6 @@
-package zielinskin.generatorapp.logic;
+package zielinskin.generatorapp.logic.foo;
 
-public class FooGenericsBuilderImpl implements FooGenericsBuilder<Foo> {
+class FooGenericsBuilderImpl implements FooGenericsBuilder<Foo> {
     private final Integer id;
     private String foo;
 

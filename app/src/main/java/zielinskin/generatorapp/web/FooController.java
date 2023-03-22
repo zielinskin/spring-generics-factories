@@ -1,12 +1,9 @@
 package zielinskin.generatorapp.web;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import zielinskin.builder.GenericsService;
-import zielinskin.generatorapp.logic.Foo;
-import zielinskin.generatorapp.logic.FooBar;
+import zielinskin.generatorapp.logic.foo.Foo;
+import zielinskin.generatorapp.logic.foobar.FooBar;
 
 @RestController
 @RequestMapping("/")

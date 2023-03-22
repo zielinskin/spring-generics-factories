@@ -17,9 +17,6 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant-path-matcher
-#  sql:
-#    init:
-#      data-locations: classpath:data.sql
 
 hibernate:
   dialect: "org.hibernate.dialect.H2Dialect"

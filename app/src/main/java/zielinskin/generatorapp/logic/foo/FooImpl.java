@@ -1,6 +1,6 @@
-package zielinskin.generatorapp.logic;
+package zielinskin.generatorapp.logic.foo;
 
-public class FooImpl implements Foo {
+class FooImpl implements Foo {
     private final Integer id;
     private final String foo;
 

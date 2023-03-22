@@ -1,4 +1,7 @@
-package zielinskin.generatorapp.logic;
+package zielinskin.generatorapp.logic.foobar;
+
+import zielinskin.generatorapp.logic.bar.Bar;
+import zielinskin.generatorapp.logic.foo.Foo;
 
 public class FooBar implements Foo, Bar {
     private final Integer id;

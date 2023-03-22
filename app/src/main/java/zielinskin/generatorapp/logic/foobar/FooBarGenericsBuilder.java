@@ -1,6 +1,9 @@
-package zielinskin.generatorapp.logic;
+package zielinskin.generatorapp.logic.foobar;
 
-public class FooBarGenericsBuilder implements FooGenericsBuilder<FooBar>, BarGenericsBuilder<FooBar> {
+import zielinskin.generatorapp.logic.bar.BarGenericsBuilder;
+import zielinskin.generatorapp.logic.foo.FooGenericsBuilder;
+
+class FooBarGenericsBuilder implements FooGenericsBuilder<FooBar>, BarGenericsBuilder<FooBar> {
     private final Integer id;
     private String bar;
     private String foo;

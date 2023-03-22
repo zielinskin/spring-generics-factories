@@ -1,4 +1,4 @@
-package zielinskin.generatorapp.logic;
+package zielinskin.generatorapp.logic.foo;
 
 import zielinskin.builder.GenericsBuilder;
 
