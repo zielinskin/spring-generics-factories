@@ -1,10 +1,10 @@
 package zielinskin.generatorapp.logic;
 
-public class FooDecoratableImpl implements FooDecoratable<Foo> {
+public class FooGenericsBuilderImpl implements FooGenericsBuilder<Foo> {
     private final Integer id;
     private String foo;
 
-    public FooDecoratableImpl(Integer id) {
+    public FooGenericsBuilderImpl(Integer id) {
         this.id = id;
     }
 

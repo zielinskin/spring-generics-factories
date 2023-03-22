@@ -1,11 +1,11 @@
 package zielinskin.generatorapp.logic;
 
-public class FooBarDecoratable implements FooDecoratable<FooBar>, BarDecoratable<FooBar> {
+public class FooBarGenericsBuilder implements FooGenericsBuilder<FooBar>, BarGenericsBuilder<FooBar> {
     private final Integer id;
     private String bar;
     private String foo;
 
-    public FooBarDecoratable(Integer id) {
+    public FooBarGenericsBuilder(Integer id) {
         this.id = id;
     }
 
