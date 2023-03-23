@@ -8,7 +8,7 @@ public abstract class GenericsDecorator<K> {
         Collection<K> javaSucksCollection = decoratables.stream()
                 .map(decoratable ->
                         (K) decoratable)
-                .toList();
+                .collect(Collectors.toSet());
 
         decorateButWithoutTypeErasure(javaSucksCollection);
     }
