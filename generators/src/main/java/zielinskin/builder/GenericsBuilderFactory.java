@@ -1,5 +1,5 @@
 package zielinskin.builder;
 
-public interface GenericsBuilderFactory<T> {
-    T create(Integer id);
+public interface GenericsBuilderFactory<T, I> {
+    T create(I id);
 }

@@ -6,24 +6,24 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-public abstract class GenericsService<T> {
-    private final GenericsBuilderFactory<? extends GenericsBuilder<T>> genericsBuilderFactory;
-    private final List<GenericsDecorator<? super T>> genericsDecorators;
+public abstract class GenericsService<T, I,  K extends GenericsBuilder<T, I>> implements GenericsServiceClient<T,I> {
+    private final GenericsBuilderFactory<K, I> genericsBuilderFactory;
+    private final List<GenericsDecorator<? super K>> genericsDecorators;
 
-    public GenericsService(GenericsBuilderFactory<? extends GenericsBuilder<T>> genericsBuilderFactory,
-                           List<GenericsDecorator<? super T>> genericsDecorators) {
+    public GenericsService(GenericsBuilderFactory<K, I> genericsBuilderFactory,
+                           List<GenericsDecorator<? super K>> genericsDecorators) {
         this.genericsBuilderFactory = genericsBuilderFactory;
         this.genericsDecorators = genericsDecorators;
     }
 
-    public T get(Integer id) {
+    public T get(I id) {
         return get(Collections.singleton(id)).stream()
                 .findFirst()
                 .orElse(null);
     }
 
-    public List<T> get(Collection<Integer> ids) {
-        Collection<GenericsBuilder<T>> genericsBuilders = ids.stream()
+    public List<T> get(Collection<I> ids) {
+        Collection<K> genericsBuilders = ids.stream()
                 .map(genericsBuilderFactory::create)
                 .collect(Collectors.toList());
 

@@ -6,9 +6,9 @@ import zielinskin.builder.*;
 import java.util.List;
 
 @Service
-class FooGenericsService extends GenericsService<Foo> {
-    public FooGenericsService(GenericsBuilderFactory<? extends GenericsBuilder<Foo>> genericsBuilderFactory,
-                              List<GenericsDecorator<? super Foo>> genericsDecorators) {
+class FooGenericsService extends GenericsService<Foo, Integer, FooGenericsBuilderImpl> {
+    public FooGenericsService(GenericsBuilderFactory<FooGenericsBuilderImpl, Integer> genericsBuilderFactory,
+                              List<GenericsDecorator<? super FooGenericsBuilderImpl>> genericsDecorators) {
         super(genericsBuilderFactory, genericsDecorators);
     }
 }

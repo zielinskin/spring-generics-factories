@@ -1,9 +1,10 @@
 package zielinskin.generatorapp.foobar;
 
 import zielinskin.bar.BarGenericsBuilder;
+import zielinskin.builder.GenericsBuilder;
 import zielinskin.foo.FooGenericsBuilder;
 
-class FooBarGenericsBuilder implements FooGenericsBuilder<FooBar>, BarGenericsBuilder<FooBar> {
+class FooBarGenericsBuilder implements FooGenericsBuilder, BarGenericsBuilder, GenericsBuilder<FooBar, Integer> {
     private final Integer id;
     private String bar;
     private String foo;

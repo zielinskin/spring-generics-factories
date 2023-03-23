@@ -4,9 +4,9 @@ import org.springframework.stereotype.Service;
 import zielinskin.builder.GenericsBuilderFactory;
 
 @Service
-class FooGenericsBuilderFactory implements GenericsBuilderFactory<FooGenericsBuilder<Foo>> {
+class FooGenericsBuilderFactory implements GenericsBuilderFactory<FooGenericsBuilderImpl, Integer> {
     @Override
-    public FooGenericsBuilder<Foo> create(Integer id) {
+    public FooGenericsBuilderImpl create(Integer id) {
         return new FooGenericsBuilderImpl(id);
     }
 }

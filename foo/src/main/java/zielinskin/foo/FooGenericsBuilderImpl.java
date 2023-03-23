@@ -1,6 +1,8 @@
 package zielinskin.foo;
 
-class FooGenericsBuilderImpl implements FooGenericsBuilder<Foo> {
+import zielinskin.builder.GenericsBuilder;
+
+class FooGenericsBuilderImpl implements FooGenericsBuilder, GenericsBuilder<Foo, Integer> {
     private final Integer id;
     private String foo;
 

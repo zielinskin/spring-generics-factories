@@ -4,12 +4,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import zielinskin.builder.GenericsService;
+import zielinskin.builder.GenericsServiceClient;
 
 @RestController
 class FooController {
-    private final GenericsService<Foo> fooService;
+    private final GenericsServiceClient<Foo, Integer> fooService;
 
-    public FooController(GenericsService<Foo> fooService) {
+    public FooController(GenericsServiceClient<Foo, Integer> fooService) {
         this.fooService = fooService;
     }
 

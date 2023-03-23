@@ -10,7 +10,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
-class BarGenericsDecorator implements GenericsDecorator<Bar> {
+class BarGenericsDecorator extends GenericsDecorator<BarGenericsBuilder> {
     private final BarRepository barRepository;
 
     public BarGenericsDecorator(BarRepository barRepository) {
@@ -18,15 +18,15 @@ class BarGenericsDecorator implements GenericsDecorator<Bar> {
     }
 
     @Override
-    public <T> void decorate(Collection<GenericsBuilder<T>> genericsBuilders) {
-        Map<Integer, GenericsBuilder<T>> genericsBuilderMap = genericsBuilders.stream()
+    public void decorateButWithoutTypeErasure(Collection<BarGenericsBuilder> genericsBuilders) {
+        Map<Integer, BarGenericsBuilder> genericsBuilderMap = genericsBuilders.stream()
                 .collect(Collectors.toMap(
-                        GenericsBuilder::getId,
+                        BarGenericsBuilder::getId,
                         Function.identity()));
 
         barRepository.findAllById(genericsBuilderMap.keySet())
                 .forEach(fooEntity ->
-                        ((BarGenericsBuilder<Bar>) genericsBuilderMap.get(fooEntity.getId()))
+                        genericsBuilderMap.get(fooEntity.getId())
                                 .setBar(fooEntity.getBar()));
     }
 }
