@@ -7,7 +7,7 @@ pluginManagement {
 
 rootProject.name = 'spring-generics-factories'
 
-include 'generators'
+include 'generics-factories-core'
 include 'app'
 include 'foo'
 include 'bar'
