@@ -1,7 +1,6 @@
 package zielinskin.bar;
 
 import org.springframework.stereotype.Service;
-import zielinskin.builder.GenericsBuilder;
 import zielinskin.builder.GenericsDecorator;
 
 import java.util.Collection;
@@ -10,7 +9,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
-class BarGenericsDecorator extends GenericsDecorator<BarGenericsBuilder> {
+class BarGenericsDecorator extends GenericsDecorator<BarGenericsDecoratable> {
     private final BarRepository barRepository;
 
     public BarGenericsDecorator(BarRepository barRepository) {
@@ -18,10 +17,10 @@ class BarGenericsDecorator extends GenericsDecorator<BarGenericsBuilder> {
     }
 
     @Override
-    public void decorateButWithoutTypeErasure(Collection<BarGenericsBuilder> genericsBuilders) {
-        Map<Integer, BarGenericsBuilder> genericsBuilderMap = genericsBuilders.stream()
+    public void decorateButWithoutTypeErasure(Collection<BarGenericsDecoratable> genericsBuilders) {
+        Map<Integer, BarGenericsDecoratable> genericsBuilderMap = genericsBuilders.stream()
                 .collect(Collectors.toMap(
-                        BarGenericsBuilder::getId,
+                        BarGenericsDecoratable::getId,
                         Function.identity()));
 
         barRepository.findAllById(genericsBuilderMap.keySet())
