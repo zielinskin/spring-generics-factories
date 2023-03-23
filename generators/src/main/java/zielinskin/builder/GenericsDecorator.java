@@ -3,16 +3,16 @@ package zielinskin.builder;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-public abstract class GenericsDecorator<K> {
+public abstract class GenericsDecorator<B> {
     public void decorate(Collection<?> decoratables) {
-        Collection<K> javaSucksCollection = decoratables.stream()
+        Collection<B> javaSucksCollection = decoratables.stream()
                 .map(decoratable ->
-                        (K) decoratable)
+                        (B) decoratable)
                 .collect(Collectors.toSet());
 
         decorateButWithoutTypeErasure(javaSucksCollection);
     }
 
-    protected abstract void decorateButWithoutTypeErasure(Collection<K> genericsBuilders);
+    protected abstract void decorateButWithoutTypeErasure(Collection<B> genericsBuilders);
 
 }

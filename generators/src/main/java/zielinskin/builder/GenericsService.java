@@ -6,12 +6,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-public abstract class GenericsService<T, I,  K extends GenericsBuilder<T, I>> implements GenericsServiceClient<T,I> {
-    private final GenericsBuilderFactory<K, I> genericsBuilderFactory;
-    private final List<GenericsDecorator<? super K>> genericsDecorators;
+public abstract class GenericsService<T, I, B extends GenericsBuilder<T, I>>
+        implements GenericsServiceClient<T,I> {
+    private final GenericsBuilderFactory<B, I> genericsBuilderFactory;
+    private final List<GenericsDecorator<? super B>> genericsDecorators;
 
-    public GenericsService(GenericsBuilderFactory<K, I> genericsBuilderFactory,
-                           List<GenericsDecorator<? super K>> genericsDecorators) {
+    public GenericsService(GenericsBuilderFactory<B, I> genericsBuilderFactory,
+                           List<GenericsDecorator<? super B>> genericsDecorators) {
         this.genericsBuilderFactory = genericsBuilderFactory;
         this.genericsDecorators = genericsDecorators;
     }
@@ -23,7 +24,7 @@ public abstract class GenericsService<T, I,  K extends GenericsBuilder<T, I>> im
     }
 
     public List<T> get(Collection<I> ids) {
-        Collection<K> genericsBuilders = ids.stream()
+        Collection<B> genericsBuilders = ids.stream()
                 .map(genericsBuilderFactory::create)
                 .collect(Collectors.toList());
 
