@@ -3,7 +3,6 @@ package zielinskin.generatorapp.foobar;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import zielinskin.builder.GenericsService;
 import zielinskin.builder.GenericsServiceClient;
 
 @RestController
@@ -16,7 +15,8 @@ class FooBarController {
 
     @GetMapping("/foobars/{id}")
     public FooBar get(@PathVariable Integer id) {
-        return service.get(id);
+        return service.get(id)
+                .orElse(null);
     }
 
 }

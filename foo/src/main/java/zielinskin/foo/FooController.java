@@ -3,7 +3,6 @@ package zielinskin.foo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import zielinskin.builder.GenericsService;
 import zielinskin.builder.GenericsServiceClient;
 
 @RestController
@@ -16,6 +15,7 @@ class FooController {
 
     @GetMapping("/foos/{id}")
     public Foo get(@PathVariable Integer id) {
-        return fooService.get(id);
+        return fooService.get(id)
+                .orElse(null);
     }
 }

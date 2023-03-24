@@ -1,16 +1,8 @@
 plugins {
     id 'java-library'
-    id 'maven-publish'
 }
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId = rootProject.group
-            artifactId = project.name
-            version = rootProject.version
-
-            from components.java
-        }
-    }
+compileJava {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
 }

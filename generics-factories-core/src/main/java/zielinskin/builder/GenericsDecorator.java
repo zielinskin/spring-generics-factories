@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 public abstract class GenericsDecorator<B> {
+    //todo: how do we avoid this?
     public void decorate(Collection<?> decoratables) {
         Collection<B> javaSucksCollection = decoratables.stream()
                 .map(decoratable ->

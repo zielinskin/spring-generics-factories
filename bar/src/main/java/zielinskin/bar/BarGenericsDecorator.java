@@ -24,8 +24,8 @@ class BarGenericsDecorator extends GenericsDecorator<BarGenericsDecoratable> {
                         Function.identity()));
 
         barRepository.findAllById(genericsBuilderMap.keySet())
-                .forEach(fooEntity ->
-                        genericsBuilderMap.get(fooEntity.getId())
-                                .setBar(fooEntity.getBar()));
+                .forEach(barEntity ->
+                        genericsBuilderMap.get(barEntity.getId())
+                                .setBar(barEntity.getBar()));
     }
 }

@@ -14,14 +14,17 @@ public class FooBar implements Foo, Bar {
         this.bar = bar;
     }
 
+    @Override
     public Integer getId() {
         return id;
     }
 
+    @Override
     public String getFoo() {
         return foo;
     }
 
+    @Override
     public String getBar() {
         return bar;
     }
