@@ -26,13 +26,14 @@ There are two primary ways of extending this pattern for use with a new data set
 
 In order to add a new data source, the following must be added:
 
-- An interface to hold the values that the result object will have
 - An interface with setters that will be decorated with the new values to be used to construct the result objects
   - This interface must extend Identifiable<I> where I is the type of field that identifies the object 
 - A new spring bean that extends GenericsDecorator<T> where T is the interface created in the step above.
 - Additional Optional classes:
   - A configuration class to autowire the newly created beans
   - If adding a new data source not and not consuming an existing one, repositories or api clients may be necessary for data acquisition.
+  - An interface to hold the values that the result object will have.
+      - Only optional if this data set does not expose data on the result object, but will be used for domain logic inside the builder
 
 ### New Result Object
 
