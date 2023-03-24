@@ -10,7 +10,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
-class FooGenericsDecorator extends GenericsDecorator<FooGenericsDecoratable> {
+class FooGenericsDecorator implements GenericsDecorator<FooGenericsDecoratable> {
     private final FooRepository fooRepository;
 
     public FooGenericsDecorator(FooRepository fooRepository) {
@@ -18,7 +18,7 @@ class FooGenericsDecorator extends GenericsDecorator<FooGenericsDecoratable> {
     }
 
     @Override
-    public void decorateButWithoutTypeErasure(Collection<FooGenericsDecoratable> genericsBuilders) {
+    public <T extends FooGenericsDecoratable> void decorate(Collection<T> genericsBuilders) {
         Map<Integer, FooGenericsDecoratable> genericsBuilderMap = genericsBuilders.stream()
                 .collect(Collectors.toMap(
                         Identifiable::getId,
