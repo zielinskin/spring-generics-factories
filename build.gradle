@@ -1,6 +1,6 @@
-group 'zielinskin.generics-factories'
+group 'io.github.zielinskin'
 
-version '1.0'
+version '1.0.0'
 
 subprojects {
     apply plugin: 'java'

@@ -1,8 +1,68 @@
 plugins {
     id 'java-library'
+    id 'maven-publish'
+    id 'signing'
 }
 
 compileJava {
     sourceCompatibility = '1.8'
     targetCompatibility = '1.8'
 }
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            group = rootProject.group
+            artifactId = project.name
+            from components.java
+            version = rootProject.version
+            pom {
+                name = 'Spring Generics Factories'
+                description = 'Dynamically creates objects based on the interfaces exposed to specifically target intended data sources.'
+                url = 'https://github.com/zielinskin/spring-generics-factories'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'zielinskin'
+                        name = 'Neil Zielinski'
+                        email = 'zielinskin@outlook.com'
+                        organization = 'None'
+                        organizationUrl = 'https://github.com/zielinskin'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/zielinskin/spring-generics-factories.git'
+                    developerConnection = 'scm:git:https://github.com/zielinskin/spring-generics-factories.git'
+                    url = 'https://github.com/zielinskin/spring-generics-factories'
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            name = 'springGenericsFactoriesMaven'
+            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+            def snapshotsRepoUrl = "'https://oss.sonatype.org/content/repositories/snapshots/'"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+
+            credentials {
+                username "zielinskin"
+                password "nope"
+            }
+        }
+    }
+}
+
+//signing {
+//    sign publishing.publications.mavenJava
+//}

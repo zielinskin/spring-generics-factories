@@ -1,16 +1,17 @@
 package zielinskin.builder;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 
 public abstract class GenericsService<T, I, B extends GenericsBuilder<T, I>>
         implements GenericsServiceClient<T,I> {
     private final GenericsBuilderFactory<B, I> genericsBuilderFactory;
-    private final List<GenericsDecorator<? super B>> genericsDecorators;
+    private final List<GenericsDecorator<? super B, I>> genericsDecorators;
 
     public GenericsService(GenericsBuilderFactory<B, I> genericsBuilderFactory,
-                           List<GenericsDecorator<? super B>> genericsDecorators) {
+                           List<GenericsDecorator<? super B, I>> genericsDecorators) {
         this.genericsBuilderFactory = genericsBuilderFactory;
         this.genericsDecorators = genericsDecorators;
     }
@@ -21,14 +22,15 @@ public abstract class GenericsService<T, I, B extends GenericsBuilder<T, I>>
     }
 
     public List<T> get(Collection<I> ids) {
-        Collection<B> genericsBuilders = ids.stream()
+        Map<I, B> genericsBuilders = ids.stream()
                 .map(genericsBuilderFactory::create)
-                .collect(Collectors.toList());
+                .collect(Collectors.toMap(Identifiable::getId,
+                        Function.identity()));
 
         genericsDecorators.forEach(decorator ->
                 decorator.decorate(genericsBuilders));
 
-        return genericsBuilders.stream()
+        return genericsBuilders.values().stream()
                 .map(GenericsBuilder::build)
                 .collect(Collectors.toList());
     }

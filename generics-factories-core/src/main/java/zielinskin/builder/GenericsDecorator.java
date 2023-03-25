@@ -1,7 +1,7 @@
 package zielinskin.builder;
 
-import java.util.Collection;
+import java.util.Map;
 
-public interface GenericsDecorator<B> {
-    <T extends B> void decorate(Collection<T> decoratables);
+public interface GenericsDecorator<B extends Identifiable<I>, I> {
+    <T extends B> void decorate(Map<I, T> decoratables);
 }
