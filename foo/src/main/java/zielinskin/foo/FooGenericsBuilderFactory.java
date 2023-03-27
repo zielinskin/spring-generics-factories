@@ -6,7 +6,7 @@ import zielinskin.builder.GenericsBuilderFactory;
 @Service
 class FooGenericsBuilderFactory implements GenericsBuilderFactory<FooGenericsBuilder, Integer> {
     @Override
-    public FooGenericsBuilder create(Integer id) {
-        return new FooGenericsBuilder(id);
+    public FooGenericsBuilder create(Integer seed) {
+        return new FooGenericsBuilder(seed);
     }
 }

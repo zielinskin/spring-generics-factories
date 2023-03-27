@@ -1,5 +1,5 @@
 package zielinskin.builder;
 
-public interface GenericsBuilder<T, I> extends Identifiable<I> {
+public interface GenericsBuilder<T>{
     T build();
 }

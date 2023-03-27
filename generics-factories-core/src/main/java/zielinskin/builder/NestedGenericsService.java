@@ -1,17 +1,18 @@
 package zielinskin.builder;
 
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
-
-public abstract class GenericsService<T extends Identifiable<I>, I, B extends GenericsBuilder<T>>
-        implements GenericsServiceClient<T,I> {
-    private final GenericsBuilderFactory<B, I> genericsBuilderFactory;
+public abstract class NestedGenericsService<T, I, D extends Identifiable<I>, B extends GenericsBuilder<T>>
+        implements GenericsServiceClient<T, I> {
+    private final GenericsServiceClient<D, I> genericsServiceClient;
+    private final GenericsBuilderFactory<B, D> genericsBuilderFactory;
     private final List<GenericsDecorator<? super B, I>> genericsDecorators;
 
-    public GenericsService(GenericsBuilderFactory<B, I> genericsBuilderFactory,
+    public NestedGenericsService(GenericsServiceClient<D, I> genericsServiceClient,
+                           GenericsBuilderFactory<B, D> genericsBuilderFactory,
                            List<GenericsDecorator<? super B, I>> genericsDecorators) {
+        this.genericsServiceClient = genericsServiceClient;
         this.genericsBuilderFactory = genericsBuilderFactory;
         this.genericsDecorators = genericsDecorators;
     }
@@ -22,8 +23,10 @@ public abstract class GenericsService<T extends Identifiable<I>, I, B extends Ge
     }
 
     public List<T> get(Collection<I> ids) {
-        Map<I, B> genericsBuilders = ids.stream()
-                .collect(Collectors.toMap(Function.identity(),
+        List<D> dataObjects = genericsServiceClient.get(ids);
+
+        Map<I, B> genericsBuilders = dataObjects.stream()
+                .collect(Collectors.toMap(Identifiable::getId,
                         genericsBuilderFactory::create));
 
         genericsDecorators.forEach(decorator ->
