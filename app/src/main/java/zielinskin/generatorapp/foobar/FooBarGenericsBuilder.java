@@ -4,18 +4,13 @@ import zielinskin.bar.BarGenericsDecoratable;
 import zielinskin.builder.GenericsBuilder;
 import zielinskin.foo.FooGenericsDecoratable;
 
-class FooBarGenericsBuilder implements FooGenericsDecoratable, BarGenericsDecoratable, GenericsBuilder<FooBar, Integer> {
+class FooBarGenericsBuilder implements FooGenericsDecoratable, BarGenericsDecoratable, GenericsBuilder<FooBar> {
     private final Integer id;
     private String bar;
     private String foo;
 
     public FooBarGenericsBuilder(Integer id) {
         this.id = id;
-    }
-
-    @Override
-    public Integer getId() {
-        return id;
     }
 
     @Override

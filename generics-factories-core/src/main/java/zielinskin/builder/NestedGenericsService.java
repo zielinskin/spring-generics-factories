@@ -1,17 +1,18 @@
 package zielinskin.builder;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public abstract class NestedGenericsService<T, I, D extends Identifiable<I>, B extends GenericsBuilder<T>>
         implements GenericsServiceClient<T, I> {
     private final GenericsServiceClient<D, I> genericsServiceClient;
     private final GenericsBuilderFactory<B, D> genericsBuilderFactory;
-    private final List<GenericsDecorator<? super B, I>> genericsDecorators;
+    private final List<GenericsDecorator<? super B, ? super D>> genericsDecorators;
 
     public NestedGenericsService(GenericsServiceClient<D, I> genericsServiceClient,
                            GenericsBuilderFactory<B, D> genericsBuilderFactory,
-                           List<GenericsDecorator<? super B, I>> genericsDecorators) {
+                           List<GenericsDecorator<? super B, ? super D>> genericsDecorators) {
         this.genericsServiceClient = genericsServiceClient;
         this.genericsBuilderFactory = genericsBuilderFactory;
         this.genericsDecorators = genericsDecorators;
@@ -25,8 +26,8 @@ public abstract class NestedGenericsService<T, I, D extends Identifiable<I>, B e
     public List<T> get(Collection<I> ids) {
         List<D> dataObjects = genericsServiceClient.get(ids);
 
-        Map<I, B> genericsBuilders = dataObjects.stream()
-                .collect(Collectors.toMap(Identifiable::getId,
+        Map<D, B> genericsBuilders = dataObjects.stream()
+                .collect(Collectors.toMap(Function.identity(),
                         genericsBuilderFactory::create));
 
         genericsDecorators.forEach(decorator ->

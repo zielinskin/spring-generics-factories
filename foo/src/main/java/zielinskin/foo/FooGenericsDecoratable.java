@@ -1,7 +1,5 @@
 package zielinskin.foo;
 
-import zielinskin.builder.Identifiable;
-
-public interface FooGenericsDecoratable extends Identifiable<Integer> {
+public interface FooGenericsDecoratable {
     void setFoo(String foo);
 }

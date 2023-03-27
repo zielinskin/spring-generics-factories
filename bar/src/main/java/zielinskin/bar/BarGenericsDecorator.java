@@ -14,8 +14,8 @@ class BarGenericsDecorator implements GenericsDecorator<BarGenericsDecoratable, 
     }
 
     @Override
-    public <T extends BarGenericsDecoratable> void decorate(Map<Integer, T> genericsBuilders) {
-        barRepository.findAllById(genericsBuilders.keySet())
+    public <T extends BarGenericsDecoratable, D extends Integer> void decorate(Map<D, T> genericsBuilders) {
+        barRepository.findAllById((Iterable<Integer>) genericsBuilders.keySet())
                 .forEach(barEntity ->
                         genericsBuilders.get(barEntity.getId())
                                 .setBar(barEntity.getBar()));

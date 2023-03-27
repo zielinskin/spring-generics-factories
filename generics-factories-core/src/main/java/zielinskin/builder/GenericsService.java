@@ -5,7 +5,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 
-public abstract class GenericsService<T extends Identifiable<I>, I, B extends GenericsBuilder<T>>
+public abstract class GenericsService<T extends Identifiable<?>, I, B extends GenericsBuilder<T>>
         implements GenericsServiceClient<T,I> {
     private final GenericsBuilderFactory<B, I> genericsBuilderFactory;
     private final List<GenericsDecorator<? super B, I>> genericsDecorators;

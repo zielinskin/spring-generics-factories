@@ -18,9 +18,6 @@ spring:
 #    pathmatch:
 #      matching-strategy: ant-path-matcher
 
-server:
-  port: 8081
-
 hibernate:
   dialect: "org.hibernate.dialect.H2Dialect"
 

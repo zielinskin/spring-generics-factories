@@ -1,5 +1,5 @@
 package zielinskin.builder;
 
-public interface GenericsBuilder<T>{
+public interface GenericsBuilder<T> {
     T build();
 }

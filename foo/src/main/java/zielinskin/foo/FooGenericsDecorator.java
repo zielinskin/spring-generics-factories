@@ -14,8 +14,8 @@ class FooGenericsDecorator implements GenericsDecorator<FooGenericsDecoratable, 
     }
 
     @Override
-    public <T extends FooGenericsDecoratable> void decorate(Map<Integer, T> genericsBuilders) {
-        fooRepository.findAllById(genericsBuilders.keySet())
+    public <T extends FooGenericsDecoratable, D extends Integer> void decorate(Map<D, T> genericsBuilders) {
+        fooRepository.findAllById((Iterable<Integer>) genericsBuilders.keySet())
                 .forEach(fooEntity ->
                         genericsBuilders.get(fooEntity.getId())
                                 .setFoo(fooEntity.getFoo()));

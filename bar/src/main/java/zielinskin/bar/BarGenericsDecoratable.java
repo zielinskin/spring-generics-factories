@@ -1,7 +1,5 @@
 package zielinskin.bar;
 
-import zielinskin.builder.Identifiable;
-
-public interface BarGenericsDecoratable extends Identifiable<Integer> {
+public interface BarGenericsDecoratable {
     void setBar(String bar);
 }

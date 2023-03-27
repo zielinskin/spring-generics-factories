@@ -2,7 +2,7 @@ package zielinskin.foo;
 
 import zielinskin.builder.GenericsBuilder;
 
-class FooGenericsBuilder implements FooGenericsDecoratable, GenericsBuilder<Foo, Integer> {
+class FooGenericsBuilder implements FooGenericsDecoratable, GenericsBuilder<Foo> {
     private final Integer id;
     private String foo;
 
@@ -10,10 +10,9 @@ class FooGenericsBuilder implements FooGenericsDecoratable, GenericsBuilder<Foo,
         this.id = id;
     }
 
-    @Override
-    public Integer getId() {
-        return id;
-    }
+//    public Integer getId() {
+//        return id;
+//    }
 
     @Override
     public void setFoo(String foo) {
