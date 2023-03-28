@@ -1,4 +1,4 @@
-package zielinskin.generatorapp.foobar;
+package zielinskin.foobar;
 
 import zielinskin.bar.Bar;
 import zielinskin.foo.Foo;
@@ -14,7 +14,6 @@ public class FooBar implements Foo, Bar {
         this.bar = bar;
     }
 
-    @Override
     public Integer getId() {
         return id;
     }

@@ -1,4 +1,4 @@
-package zielinskin.generatorapp.foobar;
+package zielinskin.foobar;
 
 import org.springframework.stereotype.Service;
 import zielinskin.builder.GenericsBuilderFactory;

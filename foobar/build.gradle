@@ -1,0 +1,17 @@
+plugins {
+    id 'java-library'
+    id 'org.springframework.boot' version '2.7.5' apply false
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+dependencyManagement {
+    imports {
+        mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
+dependencies {
+    api project(':foo')
+    api project(':bar')
+}

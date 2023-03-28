@@ -1,4 +1,4 @@
-package zielinskin.generatorapp.foobar;
+package zielinskin.foobar;
 
 import zielinskin.bar.BarGenericsDecoratable;
 import zielinskin.builder.GenericsBuilder;

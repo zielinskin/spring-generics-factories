@@ -4,15 +4,15 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public abstract class NestedGenericsService<T, I, D extends Identifiable<I>, B extends GenericsBuilder<T>>
+public abstract class CompositeGenericsService<T, I, D, B extends GenericsBuilder<T>>
         implements GenericsServiceClient<T, I> {
     private final GenericsServiceClient<D, I> genericsServiceClient;
     private final GenericsBuilderFactory<B, D> genericsBuilderFactory;
     private final List<GenericsDecorator<? super B, ? super D>> genericsDecorators;
 
-    public NestedGenericsService(GenericsServiceClient<D, I> genericsServiceClient,
-                           GenericsBuilderFactory<B, D> genericsBuilderFactory,
-                           List<GenericsDecorator<? super B, ? super D>> genericsDecorators) {
+    public CompositeGenericsService(GenericsServiceClient<D, I> genericsServiceClient,
+                                    GenericsBuilderFactory<B, D> genericsBuilderFactory,
+                                    List<GenericsDecorator<? super B, ? super D>> genericsDecorators) {
         this.genericsServiceClient = genericsServiceClient;
         this.genericsBuilderFactory = genericsBuilderFactory;
         this.genericsDecorators = genericsDecorators;

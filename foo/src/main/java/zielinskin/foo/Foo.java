@@ -1,7 +1,6 @@
 package zielinskin.foo;
 
-import zielinskin.builder.Identifiable;
 
-public interface Foo extends Identifiable<Integer> {
+public interface Foo {
     String getFoo();
 }

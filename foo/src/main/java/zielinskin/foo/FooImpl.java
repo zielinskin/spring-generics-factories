@@ -9,7 +9,6 @@ class FooImpl implements Foo {
         this.foo = foo;
     }
 
-    @Override
     public Integer getId() {
         return id;
     }

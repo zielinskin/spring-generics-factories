@@ -5,8 +5,7 @@ plugins {
 apply plugin: "io.spring.dependency-management"
 
 dependencies {
-    implementation project(':foo')
-    implementation project(':bar')
+    implementation project(':foobar')
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
     implementation group: 'org.springframework', name: 'spring-webmvc'
     implementation group: 'org.hibernate', name: 'hibernate-core'

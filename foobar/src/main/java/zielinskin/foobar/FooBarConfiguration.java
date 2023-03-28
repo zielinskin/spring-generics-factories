@@ -1,18 +1,21 @@
-package zielinskin.generatorapp.foobar;
+package zielinskin.foobar;
 
 
 import org.springdoc.core.GroupedOpenApi;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import zielinskin.bar.BarConfiguration;
 import zielinskin.foo.FooConfiguration;
 
 @Configuration
-@ComponentScan("zielinskin.generatorapp.foobar")
+@ComponentScan("zielinskin.foobar")
 @Import({
         FooConfiguration.class,
         BarConfiguration.class
 })
-class FooBarConfiguration {
+public class FooBarConfiguration {
     @Bean
     public GroupedOpenApi foobarDocket() {
         return GroupedOpenApi.builder()

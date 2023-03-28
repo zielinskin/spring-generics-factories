@@ -11,4 +11,5 @@ include 'generics-factories-core'
 include 'app'
 include 'foo'
 include 'bar'
+include 'foobar'
 
