@@ -27,8 +27,8 @@ There are two primary ways of extending this pattern for use with a new data set
 In order to add a new data source, the following must be added:
 
 - An interface with setters that will be decorated with the new values to be used to construct the result objects
-  - This interface must extend Identifiable<I> where I is the type of field that identifies the object 
-- A new spring bean that extends GenericsDecorator<T> where T is the interface created in the step above.
+  - This interface must extend Identifiable\<I> where I is the type of field that identifies the object.
+- A new spring bean that extends GenericsDecorator\<T> where T is the interface created in the step above.
 - Additional Optional classes:
   - A configuration class to autowire the newly created beans
   - If adding a new data source not and not consuming an existing one, repositories or api clients may be necessary for data acquisition.
@@ -40,15 +40,15 @@ In order to add a new data source, the following must be added:
 In order to add a new result object, the following must be added:
 
 - A new value class that implements the value interfaces you wish to have on the object.
-- A builder class that implements the decoratable interfaces that correspond to the above objects as well as GenericBuilder<T, I>
+- A builder class that implements the decoratable interfaces that correspond to the above objects as well as GenericBuilder\<T, I>
 - Please note, you cannot mix and match identifier types or identifiers that are not compatible across all related decorators
     - This can be overcome by using composition in your result object and having a decorator call another data service with the correct identifier
-- A builder factory class that constructs the builder that implements GenericsBuilderFactory<B, I>
+- A builder factory class that constructs the builder that implements GenericsBuilderFactory\<B, I>
   - B will be the builder class created for this data set, I will be its corresponding identifier class
-- A new Service Spring Bean class that extends GenericsService<T, I, B>
+- A new Service Spring Bean class that extends GenericsService\<T, I, B>
   - T will be the result object for this data set, I will be the identifier class and B will be the builder class for this data set
   - Note that if you are using IntelliJ or most other java IDEs, the class can be completed just by using the default auto generated constructor
-  - Also note that when consuming this class in another bean, you can use GenericsServiceClient<T,I>, so there is no need 
+  - Also note that when consuming this class in another bean, you can use GenericsServiceClient\<T,I>, so there is no need 
   to expose or require the builder type to be present in consumers
 - Additional Optional classes:
   - A controller to access the newly created objects

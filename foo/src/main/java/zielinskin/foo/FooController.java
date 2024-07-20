@@ -14,7 +14,7 @@ class FooController {
     }
 
     @GetMapping("/foos/{id}")
-    public Foo get(@PathVariable Integer id) {
+    public Foo get(@PathVariable(value = "id") Integer id) {
         return fooService.get(id)
                 .orElse(null);
     }

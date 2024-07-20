@@ -14,7 +14,7 @@ public class FooBarBusinessController {
     }
 
     @GetMapping("/foobarbusinesses/{id}")
-    public FooBarBusinesss get(@PathVariable Integer id) {
+    public FooBarBusinesss get(@PathVariable(value = "id") Integer id) {
         return service.get(id)
                 .orElse(null);
     }

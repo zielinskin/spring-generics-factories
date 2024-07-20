@@ -1,6 +1,6 @@
 plugins {
     id 'java-library'
-    id 'org.springframework.boot' version '2.7.5' apply false
+    id 'org.springframework.boot' version '3.3.2' apply false
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -15,9 +15,8 @@ dependencies {
     api project(':generics-factories-core')
     api group: 'org.springframework.boot', name: 'spring-boot-starter'
     api group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
-    api group: 'org.hibernate', name: 'hibernate-core'
 
-    api "org.springdoc:springdoc-openapi-ui:1.6.6"
+    api "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0"
 
     testImplementation group: 'junit', name: 'junit', version: '4.12'
     testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.10.0'

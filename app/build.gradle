@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.7.5'
+    id 'org.springframework.boot' version '3.3.2'
 }
 
 apply plugin: "io.spring.dependency-management"
@@ -8,9 +8,8 @@ dependencies {
     implementation project(':foobar')
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
     implementation group: 'org.springframework', name: 'spring-webmvc'
-    implementation group: 'org.hibernate', name: 'hibernate-core'
 
-    implementation group: 'com.h2database', name: 'h2', version: '2.0.204'
+    runtimeOnly 'com.h2database:h2'
 
     testImplementation group: 'junit', name: 'junit', version: '4.12'
     testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.10.0'

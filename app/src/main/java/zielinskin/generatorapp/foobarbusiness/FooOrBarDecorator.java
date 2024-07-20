@@ -6,6 +6,7 @@ import zielinskin.foobar.FooBar;
 
 import java.util.Comparator;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Stream;
 
 @Component
@@ -18,7 +19,8 @@ class FooOrBarDecorator implements GenericsDecorator<FooOrBarDecoratable, FooBar
 
     private String getFooOrBar(FooBar fooBar) {
         return Stream.of(fooBar.getBar(), fooBar.getFoo())
-                .min(Comparator.nullsLast(Comparator.naturalOrder()))
+                .filter(Objects::nonNull) //min refuses to accept nulls, even with a null-safe comparator
+                .min(Comparator.naturalOrder())
                 .orElse(null);
     }
 }
